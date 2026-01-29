@@ -1,0 +1,127 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    position: relative;
+    z-index: 1;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.formGroup label {
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: color var(--transition-base);
+}
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+    padding: 1rem 1.25rem;
+    border: 2px solid var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    transition: all var(--transition-base);
+    background: var(--bg-secondary);
+    font-weight: 500;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+    outline: none;
+    border-color: var(--primary-vibrant);
+    box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.1);
+    background: white;
+    transform: translateY(-2px);
+}
+
+.formGroup input:hover,
+.formGroup textarea:hover,
+.formGroup select:hover {
+    border-color: var(--primary);
+    background: white;
+}
+
+.formGroup textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.submitButton {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 1.125rem 2rem;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-lg);
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.submitButton::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width var(--transition-slow), height var(--transition-slow);
+}
+
+.submitButton:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: var(--shadow-xl), var(--shadow-glow);
+}
+
+.submitButton:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.submitButton:active {
+    transform: translateY(-1px) scale(1);
+}
+
+.submitButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.successMessage {
+    padding: 1.25rem;
+    background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+    color: white;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    font-weight: 600;
+    box-shadow: var(--shadow-lg);
+    animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.errorMessage {
+    padding: 1.25rem;
+    background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+    color: white;
+    border-radius: var(--radius-lg);
+    text-align: center;
+    font-weight: 600;
+    box-shadow: var(--shadow-lg);
+    animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}

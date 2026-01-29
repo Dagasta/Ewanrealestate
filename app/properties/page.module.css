@@ -1,0 +1,217 @@
+.main {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
+}
+
+.pageHeader {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 5rem 0 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-size: 200% 200%;
+    animation: gradient-shift 15s ease infinite;
+}
+
+.pageHeader::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.pageHeader h1 {
+    color: white;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+    text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+    font-weight: 900;
+    position: relative;
+    z-index: 1;
+}
+
+.pageHeader p {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.filtersSection {
+    margin: -3rem auto 3rem;
+    max-width: 1200px;
+    position: relative;
+    z-index: 10;
+}
+
+.filtersHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    padding: 0 1.5rem;
+}
+
+.filtersHeader svg {
+    font-size: 1.5rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    background: white;
+    padding: 2.5rem;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-2xl);
+    border: 2px solid rgba(33, 150, 243, 0.1);
+    transition: all var(--transition-base);
+}
+
+.filters:hover {
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.25);
+    border-color: rgba(33, 150, 243, 0.3);
+}
+
+.filterGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.filterGroup label {
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filterGroup input,
+.filterGroup select {
+    padding: 0.875rem 1.125rem;
+    border: 2px solid var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    font-size: 1rem;
+    transition: all var(--transition-base);
+    background: var(--bg-secondary);
+    font-weight: 500;
+}
+
+.filterGroup input:focus,
+.filterGroup select:focus {
+    outline: none;
+    border-color: var(--primary-vibrant);
+    box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.1);
+    background: white;
+    transform: translateY(-2px);
+}
+
+.filterGroup input:hover,
+.filterGroup select:hover {
+    border-color: var(--primary);
+    background: white;
+}
+
+.resultsSection {
+    padding: 2rem 0 4rem;
+}
+
+.resultsHeader {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.resultsHeader h2 {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: var(--text-primary);
+    position: relative;
+    display: inline-block;
+}
+
+.resultsHeader h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-secondary);
+    border-radius: var(--radius-full);
+}
+
+.loadingState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 2rem;
+    gap: 2rem;
+}
+
+.loadingState .loading {
+    width: 60px;
+    height: 60px;
+    border-width: 5px;
+    border-color: var(--primary-vibrant);
+    border-top-color: transparent;
+}
+
+.loadingState p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.noResults {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, white 100%);
+    border-radius: var(--radius-2xl);
+    border: 2px dashed var(--bg-tertiary);
+    margin: 2rem 0;
+}
+
+.noResults p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.noResults .text-muted {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .pageHeader {
+        padding: 4rem 0 3rem;
+    }
+
+    .filtersSection {
+        margin: -2rem auto 2rem;
+    }
+
+    .filters {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem;
+        gap: 1.25rem;
+    }
+
+    .resultsHeader {
+        margin-bottom: 2rem;
+    }
+}
